@@ -147,7 +147,7 @@ class PuzzleFragment : Fragment() {
 
     fun checkGameOver() {
         if (isGameOver()) {
-            Toast.makeText(activity,"Congratulation!!! You are WIN!!",Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity,"Congratulations!!! You are WIN!!",Toast.LENGTH_SHORT).show()
         }
     }
 
