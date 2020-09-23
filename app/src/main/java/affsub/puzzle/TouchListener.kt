@@ -1,16 +1,18 @@
 package affsub.puzzle
 
+import affsub.puzzle.view.PuzzleFragment
 import android.annotation.SuppressLint
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import androidx.fragment.app.FragmentActivity
 import java.lang.Math.abs
 import kotlin.math.pow
 
 
-class TouchListener : OnTouchListener {
+class TouchListener(val fragment: PuzzleFragment) : OnTouchListener {
     private var xDelta = 0f
     private var yDelta = 0f
 
@@ -48,6 +50,7 @@ class TouchListener : OnTouchListener {
                     piece.layoutParams = lParams
                     piece.canMove = false
                     sendViewToBack(piece)
+                    fragment.checkGameOver()
                 }
             }
         }

@@ -42,8 +42,7 @@ class ListFragment : Fragment(), PhotoAdapter.Listener {
 
     override fun click(position: Int) {
         viewModel.position = position
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(R.id.frameLayout, PuzzleFragment())?.commit()
+        (requireActivity() as MainActivity).onPuzzleFragmentClick()
     }
 
 }

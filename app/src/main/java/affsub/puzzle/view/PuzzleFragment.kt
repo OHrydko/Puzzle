@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import java.util.*
@@ -42,7 +43,8 @@ class PuzzleFragment : Fragment() {
         imageView.setImageResource(viewModel.getImageFromList())
         imageView.post {
             pieces = splitImage()
-            val touchListener = TouchListener()
+            pieces.shuffle()
+            val touchListener = TouchListener(this)
             for (piece in pieces) {
                 val layoutParams = LinearLayout.LayoutParams(piece.pieceWidth, piece.pieceHeight)
                 piece.layoutParams = layoutParams
@@ -141,6 +143,21 @@ class PuzzleFragment : Fragment() {
         ret[0] = left
         ret[1] = top
         return ret
+    }
+
+    fun checkGameOver() {
+        if (isGameOver()) {
+            Toast.makeText(activity,"Congratulation!!! You are WIN!!",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun isGameOver(): Boolean {
+        for (piece in pieces) {
+            if (piece.canMove) {
+                return false
+            }
+        }
+        return true
     }
 
 }
