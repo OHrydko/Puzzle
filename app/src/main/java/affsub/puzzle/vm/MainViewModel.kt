@@ -19,6 +19,10 @@ class MainViewModel : ViewModel() {
         arrayList.add(R.drawable.photo4)
         arrayList.add(R.drawable.photo5)
         arrayList.add(R.drawable.photo6)
+        arrayList.add(R.drawable.photo7)
+        arrayList.add(R.drawable.photo8)
+        arrayList.add(R.drawable.photo9)
+        arrayList.add(R.drawable.photo10)
         return arrayList
     }
 
